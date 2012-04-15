@@ -1,0 +1,81 @@
+
+Nightlight jQuery Lightbox Plugin
+---------------------------------
+
+Nightlight is a jQuery plugin used for creating specifically positioned overlays and lightboxes. With Nightlight you can display lightbox dialogs within any container and load any content, whether it's remote web content or manually injected HTML or text. You can uniquely identify your popups for complete look-and-feel control with CSS.
+
+steven.bennett@oracle.com
+www.everfoo.com
+
+
+How to use
+----------
+
+First, include jQuery.
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		
+
+Then include the plugin.
+
+
+<script type="text/javascript" src="jquery.nightlight.js"></script>
+		
+
+All that's left is to setup your events and trigger the lightbox.
+
+
+$(document).ready(function() {
+	/* When a user clicks on #myButton */
+	$("#myButton").click(function() {
+		/* A lightbox is displayed within the "body" tag. */
+		$("body").nightlight({
+			"text": 'This is some HTML I have injected into the popup'
+		});
+	});
+});
+		
+
+Configuration Options
+---------------------
+
+Configuration options that are available for the plugin.
+
+Name		Default			Description
+id			auto			Defines an instance ID for the lightbox instance being initialized. Use this if you want to custom the appearance of the lightbox using your own CSS.
+
+height		300				Sets the height of the lightbox.
+
+width		350				Sets the width of the lightbox.
+opacity		'0.7'			Used to set the opacity level of the overlay behind the lightbox.
+closeImage					Set an image to be used for the close button of the lightbox. Either absolute or relative paths accepted.
+focused		'false'			Use this option to fill an area with the overlay and display the lightbox within the area as well.
+text						Set text to be displayed in lightbox.
+html						Initialize lightbox with HTML content.
+url							Initialize lightbox with Web content.
+
+Customizing Lightboxes
+----------------------
+
+Any instance of a Nightlight lightbox is automatically generated an instance ID and an overlay and the lightbox are appended to the body of the document. Overlays are displayed over what ever element initialized the lightbox.
+Setting a custom instance ID and displaying a full page overlay and lightbox on page load
+
+
+$(document).ready(function() {
+	$("body").nightlight({
+		'id': 'myCustomLightbox',
+		'height': '400',
+		'width': '400',
+	})	
+});
+		
+Customizing appearance of 'myCustomLightbox'
+
+
+#myCustomLightbox {
+	background-color: #444;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;	
+}
